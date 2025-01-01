@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+	<bean class="com.cdac.entity.JavaTrainer" id="javaTrainer">
+		<constructor-arg name="name" value="Mr Vishal" />
+		<constructor-arg>
+			<list>
+				<value>OOP</value>
+				<value>Treads</value>
+				<value>Reflection</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!--  
+	
+	<bean class="com.cdac.entity.JavaTrainer" id="adJavaTrainer">
+		<constructor-arg name="name" value="Mr Rushikesh" />
+		<constructor-arg>
+			<list>
+				<value>Servlet</value>
+				<value>Hibernate</value>
+				<value>Springboot</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean class="com.cdac.entity.MetNashik" id="met">
+	<constructor-arg name="trainer" value="adjavaTrainer" />
+	</bean>
+	-->
+	
+	<bean class="com.cdac.entity.MetNashik" id="met">
+	<constructor-arg name="Trainer" ref="javaTrainer" />
+	</bean>
+	
+	
+	<bean class="com.cdac.entity.PgDac" id="dac">
+	<constructor-arg name="center" ref="met" />
+	</bean>
+
+</beans>
